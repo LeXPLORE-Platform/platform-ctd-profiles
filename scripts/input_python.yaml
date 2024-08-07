@@ -1,0 +1,15 @@
+# This file contains all the output directories where the processed data is stored by the main running script
+
+#### DO NOT CHANGE THE VARIABLE NAMES ####
+
+# Level 0 output directory
+Level0_dir: "data/Level0/"
+
+# Level 2A output directory
+Level1_dir: "data/Level1/"
+
+# Level 2B output directory
+Level2_dir: "data/Level2/"
+
+# Raw input directory
+raw: "C:/Users/Seatronic 1147/Documents/Shared_Data/CTD Seansun"
