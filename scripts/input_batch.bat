@@ -8,3 +8,6 @@ SET pythonenv="C:\Users\Seatronic 1147\Documents\Data_Lexplore\git\venv\Scripts\
 :: Python script
 SET script="C:\Users\Seatronic 1147\Documents\Data_Lexplore\git\ctd-profiles\scripts\main.py"
 
+:: Python script
+SET upload="C:\Users\Seatronic 1147\Documents\Data_Lexplore\git\ctd-profiles\scripts\upload_remote_data.py"
+
