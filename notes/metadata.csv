@@ -1,0 +1,194 @@
+Date;Time (UTC);ID;Type;Parameters;Comments;Operator;miscellaneous
+10.11.2019;09:20:00;1;Installation;"CTD;multiparameter;CTD75M;855";CTD on platform, first profile;Sébastien Lavanchy;CTD75M_855_20151209_calibration.pdf
+04.12.2019;13:23:00;2;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning sensor;Sébastien Lavanchy;
+12.03.2020;14:12:00;3;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning sensor;Sébastien Lavanchy;
+16.07.2020;10:25:00;4;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning sensor;Sébastien Lavanchy;
+08.10.2020;10:30:00;5;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning sensor;Aurélien Ballu;
+11.11.2020;13:00:00;6;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning sensor;Aurélien Ballu;
+15.12.2020;14:00:00;7;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning sensor;Aurélien Ballu;
+10.03.2021;13:00:00;8;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning sensor;Aurélien Ballu;
+21.04.2021;11:30:00;9;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning sensor;Sebastien Lavanchy;
+21.04.2021;11:45:00;9;Other;"CTD;multiparameter;CTD75M;855";New batteries;Sébastien Lavanchy;
+30.04.2021;11:20:00;10;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning sensor;Sebastien Lavanchy;
+11.08.2021;16:00:00;11;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning sensor;Sebastien Lavanchy;
+27.10.2021;12:25:00;12;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning sensor;Sebastien Lavanchy;
+15.12.2021;10:10:00;13;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning sensor;Sebastien Lavanchy;
+12.01.2022;10:20:00;14;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning sensor;Sebastien Lavanchy;
+10.03.2022;11:00:00;15;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning sensor;Sebastien Lavanchy;
+03.05.2022;13:00:00;16;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning sensor;Sebastien Lavanchy;
+19.07.2022;10:30:00;17;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning sensor;Guillaume Cunillera;
+24.08.2022;09:30:00;18;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning sensor;Sébastien Lavanchy;
+29.08.2022;10:00:00;19;Other;"CTD;multiparameter;CTD75M;855";CTD new batteries;Sébastien Lavanchy;
+21.09.2022;13:00:00;20;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning sensor;Philippe Quetin;
+26.10.2022;16:00:00;21;Issue;"CTD;multiparameter;CTD75M;855";Battery leaking;Sébastien Lavanchy;
+27.10.2022;09:00:00;21;Repair;"CTD;multiparameter;CTD75M;855";Clean acid, and repair;Sébastien Lavanchy;
+27.10.2022;09:30:00;22;Issue;"ph sensor;ph;AMT;N/A(CTD855)";PH dead;Sébastien Lavanchy;
+08.11.2022;13:00:00;23;Installation;"CTD;multiparameter;CTD75M;1195";New CTD ;Sébastien Lavanchy;CTD75M_1195_20221021_calibration.pdf
+08.11.2022;14:30:00;23;Comparaison;"CTD;multiparameter;CTD75M;855 & 1195";Cross calibration SeanSun n°855 and 1195;Guillaume Cunillera;20221108_CTD855_CTD1195.zip
+10.11.2022;10:00:00;24;Issue;"ph sensor;ph;AMT;N/A(CTD1195)";pH Cap forgotten ;Guillaume Cunillera;
+15.11.2022;10:00:00;24;Repair;"ph sensor;ph;AMT;N/A(CTD1195)";pH Cap back, seems to work;Guillaume Cunillera;
+25.11.2022;11:00:00;25;Maintenance;"CTD;multiparameter;CTD75M;1195";maintenance 11/2022. cleaning;Guillaume Cunillera;
+14.12.2022;11:07:00;26;Comparaison;"CTD;multiparameter;CTD75M;855 & 1195";Cross calibration SeanSun n°855 and 1195;Floreana Miesen;20221214_CTD855_CTD1195.zip
+14.12.2022;13:35:00;26;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning;Roxane Fillion;
+14.12.2022;14:54:00;26;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration 4, 7, 10;Floreana Miesen;cal_CTD_PH_20221214.txt, cal_CTD_PH_20221214.IN
+14.12.2022;14:54:00;26;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compentation;Sébastien Lavanchy;cal_CTD_PRESSURE_20221214.txt
+14.12.2022;15:00:00;26;Recovery/removal;"CTD;multiparameter;CTD75M;855";Out for factory calibration;Sébastien Lavanchy;
+18.01.2023;14:00:00;27;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration 4, 7, 10;Floreana Miesen;cal_CTD_PH_20230118.txt
+25.01.2023;13:30:00;28;Other;"CTD;multiparameter;CTD75M;1195";Attention, coefficient in raw file are wrong. Converted file ok;Sébastien Lavanchy;
+01.02.2023;11:00:00;29;Cross comparison;"CTD;multiparameter;CTD75M;855 & 1195";Deployment with 2 sea and sun CTDs and 2 Idronauts on Thetis for cross comparison. Files not on datalakes. Start 10:30 End 17:00;Sébastien Lavanchy;
+15.02.2023;11:00:00;30;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning;Philippe Quetin;
+15.02.2023;13:15:00;30;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration 4, 7, 10;Floreana Miesen;cal_CTD_PH_20230215.txt
+15.02.2023;13:45:00;30;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Sébastien Lavanchy;cal_CTD_Pressure_20230215.txt
+16.03.2023;11:00:00;30;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Philippe Quetin;CTM1195_20230316.txt
+16.03.2023;14:20:00;30;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Philippe Quetin;cal_CTD_Pressure_20230316.txt
+16.03.2023;14:30:00;30;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration 4, 7, 10;Philippe Quetin;cal_CTD_PH_20230316.txt,  cal_CTD_PH_20230316.IN
+16.03.2023;15:00:00;30;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Calibration with air pressure corrected;Philippe Quetin;cal_CTD_DO_20230316.txt, CTM1195_20230316
+19.04.2023;08:47:00;31;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Sébastien Lavanchy;cal_CTD_Pressure_20230419.txt
+19.04.2023;09:10:00;31;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration 4, 7, 10;Sébastien Lavanchy;cal_CTD_PH_20230419.txt,  cal_CTD_PH_20230419.IN
+19.04.2023;11:52:00;31;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard;Sébastien Lavanchy;Check_Conductivity_20230419
+19.04.2023;12:19:00;31;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Calibration with air pressure corrected;Sébastien Lavanchy;cal_CTD_DO_20230419
+19.04.2023;12:25:00;31;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Sébastien Lavanchy;CTM1195_20230316.txt
+24.05.2023;10:29:00;32;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard;Philippe Quetin;Check_Conductivity_20230524.txt
+24.05.2023;11:33:00;32;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration 4, 7, 10;Philippe Quetin;cal_CTD_PH_20230524.TXT
+24.05.2023;11:46:00;32;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Philippe Quetin;cal_CTD_Pressure_20230524.txt
+24.05.2023;11:56:00;32;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Calibration with air pressure corrected;Philippe Quetin;cal_CTD_DO_20230524.txt
+24.05.2023;11:56:00;32;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Philippe Quetin;CTM1195_20230524.prb
+30.05.2023;12:00:00;33;Calibration Factory;"CTD;multiparameter;CTD75M;855";Factory calibration;Guillaume Cunillera;CTD75M_855_20230530_calibration.pdf
+21.06.2023;13:01:00;34;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Guillaume Cunillera;cal_CTD_Pressure_20230621.txt
+21.06.2023;13:03:00;34;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard;Guillaume Cunillera;Check_Conductivity_20230621.txt
+21.06.2023;13:52:00;34;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration 4, 7, 10 - after 2 tries didn't work (T° ?) we kept the last calibration.;Guillaume Cunillera;cal_CTD_PH_20230621.TXT
+21.06.2023;14:11:00;34;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Calibration with air pressure corrected;Guillaume Cunillera;cal_CTD_DO_20230621.txt
+21.06.2023;14:15:00;34;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Guillaume Cunillera;CTM1195_20230621.prb
+19.07.2023;13:00:00;35;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning;Philippe Quetin;
+16.08.2023;13:09:00;36;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Guillaume Cunillera;cal_CTD_Pressure_20230816_1195.txt
+16.08.2023;13:35:00;36;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard;Guillaume Cunillera;Check_Conductivity_20230816_1195.txt
+16.08.2023;13:52:00;36;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Guillaume Cunillera;cal_CTD_PH_20230816_1195.TXT
+16.08.2023;13:25:00;36;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Calibration with air pressure corrected;Guillaume Cunillera;cal_CTD_DO_20230816_1195.txt
+16.08.2023;14:59:00;36;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Guillaume Cunillera;CTM1195_20230816.prb
+16.08.2023;14:24:00;36;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD855)";Depth pressure compensation;Guillaume Cunillera;cal_CTD_Pressure_20230816_855.txt
+16.08.2023;14:27:00;36;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD855)";Check with 200us/cm @ 25degC standard;Guillaume Cunillera;Check_Conductivity_20230816_855.txt
+16.08.2023;14:58:00;36;Calibration Field;"ph sensor;ph;AMT;N/A(CTD855)";Calibration pH 4, 7, 10;Guillaume Cunillera;cal_CTD_PH_20230816_855.TXT
+16.08.2023;14:47:00;36;Calibration Field;"Optical DO sensor;DO;SST(external);N/A(CTD855)";Calibration with air pressure corrected;Guillaume Cunillera;cal_CTD_DO_20230816_855.txt
+16.08.2023;14:46:00;36;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning and .prb saved;Guillaume Cunillera;CTM855_20230816.prb
+17.08.2023;10:20:00;37;Cross comparison;"CTD;multiparameter;CTD75M;855 & 1195";2 Sea and Sun and 2 Idronaut;Guillaume Cunillera;
+13.09.2023;13:30:00;38;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Michael Plüss;cal_CTD_Pressure_20230913_1195.txt
+13.09.2023;13:30:00;38;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard;Michael Plüss;Check_Conductivity_20230913_1195.txt
+13.09.2023;13:30:00;38;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Michael Plüss;cal_CTD_PH_20230913_1195.txt
+13.09.2023;13:30:00;38;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Calibration with air pressure corrected. New technique in air saturated in water vapor;Michael Plüss;cal_CTD_DO_202300913_1195.txt
+13.09.2023;13:30:00;38;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Michael Plüss;CTM1195_20230913.prb
+13.09.2023;13:30:00;38;Cross comparison;"CTD;multiparameter;CTD75M;855 & 1195";2 Sea and Sun and 2 Idronaut;Sébastien Lavanchy;
+17.10.2023;12:13:00;39;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Michael Plüss;cal_CTD_Pressure_202301017_1195.txt
+17.10.2023;12:13:00;39;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard;Michael Plüss;Check_Conductivity_20231017_1195.txt
+17.10.2023;12:13:00;39;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Michael Plüss;cal_CTD_PH_20231017_1195.txt
+17.10.2023;12:13:00;39;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Calibration with air pressure corrected. New technique in air saturated in water vapor;Michael Plüss;cal_CTD_DO_202301017_1195.txt
+17.10.2023;12:13:00;39;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Michael Plüss;CTM1195.prb
+23.11.2023;11:24:00;40;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Guillaume Cunillera;cal_CTD_Pressure_20231123_1195.txt
+23.11.2023;11:37:00;40;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard;Guillaume Cunillera;Check_Conductivity_20231123_1195.txt
+23.11.2023;12:22:00;40;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Guillaume Cunillera;cal_CTD_PH_20231123_1195.txt
+23.11.2023;13:35:00;40;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Calibration with air pressure corrected. ;Guillaume Cunillera;cal_CTD_DO_20231123_1195.txt
+23.11.2023;13:20:00;40;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Guillaume Cunillera;20231123_CTM1195.prb
+16.01.2024;12:09:00;41;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Guillaume Cunillera;cal_CTD_Pressure_20240116_1195.txt
+16.01.2024;12:50:00;41;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Calibration with air pressure corrected. ;Guillaume Cunillera;cal_CTD_DO_20240116_1195.txt
+16.01.2024;14:00:00;41;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard;Guillaume Cunillera;Check_Conductivity_20240116_1195.txt
+16.01.2024;14:24:00;41;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Guillaume Cunillera;cal_CTD_PH_20240116_1195.txt
+16.01.2024;14:30:00;41;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Guillaume Cunillera;20240116_CTM1195.prb
+06.02.2024;12:00:00;42;Maintenance;"CTD;multiparameter;CTD75M;1195";new batteries;Guillaume Cunillera;
+14.02.2024;11:30:00;43;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Philippe Quetin;not saved
+14.02.2024;11:40:00;43;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Calibration with air pressure corrected. ;Philippe Quetin;not saved
+14.02.2024;12:23:00;43;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard;Philippe Quetin;Check_Conductivity_20240214_1195.txt
+14.02.2024;12:03:00;43;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Philippe Quetin;cal_CTD_PH_2024021461195.IN
+14.02.2024;12:05:00;43;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Philippe Quetin;20240214_CTM1195.prb
+22.02.2024;10:00:00;44;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Jérémy Keller;
+22.02.2024;10:15:00;44;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Calibration with air pressure corrected. ;Jérémy Keller;
+22.02.2024;10:25:00;44;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard;Jérémy Keller;
+22.02.2024;11:15:00;44;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Jérémy Keller;
+22.02.2024;11:45:00;44;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD855)";Depth pressure compensation;Jérémy Keller;
+22.02.2024;12:41:00;44;Calibration Field;"ph sensor;ph;AMT;N/A(CTD855)";Calibration pH 4, 7, 10;Jérémy Keller;
+22.02.2024;12:40:00;44;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Not done, cup missing;Jérémy Keller;
+25.02.2024;12:00:00;45;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD855)";Depth pressure compensation;;
+25.02.2024;12:15:00;45;Calibration Field;"Optical DO sensor;DO;SST(external);N/A(CTD855)";Calibration with air pressure corrected. ;;
+25.02.2024;12:30:00;45;Calibration Field;"ph sensor;ph;AMT;N/A(CTD855)";Calibration pH 4, 7, 10;;
+07.03.2024;12:08:00;46;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Guillaume Cunillera;cal_CTD_Pressure_20240307_1195.txt
+07.03.2024;12:12:00;46;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Calibration with air pressure corrected. ;Guillaume Cunillera;cal_CTD_DO_20240307_1195.txt
+07.03.2024;12:22:00;46;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard;Guillaume Cunillera;Check_Conductivity_20240307_1195.txt
+07.03.2024;14:03:00;46;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Guillaume Cunillera;cal_CTD_PH_20240307_1195.txt
+07.03.2024;14:10:00;46;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Guillaume Cunillera;CTM1195.prb
+07.03.2024;14:49:00;46;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD855)";Depth pressure compensation - problem;Guillaume Cunillera;cal_CTD_Pressure_20240307_855.txt
+07.03.2024;14:53:00;46;Calibration Field;"Optical DO sensor;DO;SST(external);N/A(CTD855)";Calibration with air pressure corrected. ;Guillaume Cunillera;cal_CTD_DO_20240307_855.txt
+07.03.2024;14:59:00;46;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD855)";Check with 200us/cm @ 25degC standard;Guillaume Cunillera;Check_Conductivity_20240307_855.txt
+07.03.2024;15:32:00;46;Calibration Field;"ph sensor;ph;AMT;N/A(CTD855)";Calibration pH 4, 7, 10;Guillaume Cunillera;cal_CTD_PH_20240307_855.txt
+07.03.2024;15:39:00;46;Maintenance;"CTD;multiparameter;CTD75M;855";Cleaning and .prb saved;Guillaume Cunillera;CTM855.prb
+08.03.2024;14:53:00;47;Cross comparison;"CTD;multiparameter;CTD75M;855 & 1195";cross comparison with 2 CTDs + Idronaut + Thetis;Guillaume Cunillera;
+08.03.2024;15:00:00;48;Issue;"CTD;multiparameter;CTD75M;855";problem wrong pressure. Error during the calibration ?;Guillaume Cunillera;
+08.03.2024;15:01:00;48;Repair;"CTD;multiparameter;CTD75M;855";back to the .PRB of 02/2024 = no calibration in march;Guillaume Cunillera;
+11.06.2024;13:00:00;49;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Guillaume Cunillera;cal_CTD_Pressure_20240611_1195.txt
+11.06.2024;13:10:00;49;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Calibration with air pressure corrected. ;Guillaume Cunillera;cal_CTD_DO_20240611_1195.txt
+11.06.2024;13:20:00;49;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard;Guillaume Cunillera;Check_Conductivity_20240611_1195.txt
+11.06.2024;13:30:00;49;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Guillaume Cunillera;cal_CTD_PH_20240611_1195.txt
+11.06.2024;13:40:00;49;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Guillaume Cunillera;CTM1195.prb
+19.06.2024;14:00:00;50;Cross comparison;"CTD;multiparameter;CTD75M;1195";crosscomparison with 2 Idronaut + Thetis + sampling Chla;Guillaume Cunillera;
+10.07.2024;13:59:00;51;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Floreana Miesen;cal_CTD_Pressure_20240710_1195.txt
+10.07.2024;09:02:00;51;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Calibration with air pressure corrected. ;Floreana Miesen;cal_CTD_DO_20240710_1195.txt
+10.07.2024;09:16:00;51;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard;Floreana Miesen;Check_Conductivity_20240710_1195.txt
+10.07.2024;09:46:00;51;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Floreana Miesen;cal_CTD_PH_20240710_1195.txt
+10.07.2024;09:50:00;51;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Floreana Miesen;CTM1195.prb
+06.08.2024;09:05:00;52;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Itsaso Lopez;cal_CTD_Pressure_20240806_1195.txt
+06.08.2024;09:50:00;52;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Calibration with air pressure corrected. ;Itsaso Lopez;cal_CTD_DO_20240806_1195.txt
+06.08.2024;10:05:00;52;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard;Itsaso Lopez;Check_Conductivity_20240806_1195.txt
+06.08.2024;10:30:00;52;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Itsaso Lopez;cal_CTD_PH_20240806_1195.txt
+06.08.2024;10:40:00;52;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Itsaso Lopez;CTM1195.prb
+04.09.2024;09:45:00;53;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Michael Plüss;cal_CTD_Pressure_20240904.txt
+04.09.2024;10:00:00;53;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Raw O2 - atmospheric pressure integration ;Michael Plüss;cal_CTD_rawO2_20241008.txt
+04.09.2024;10:05:00;53;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Sat - oxygen saturation. New procedure by Michi;;cal_CTD_satDO_20240904_1195.txt
+04.09.2024;10:25:00;53;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard. ;Michael Plüss;Check_Conductivity_20240904_1195.txt
+04.09.2024;11:34:00;53;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Michael Plüss;cal_CTD_PH_20240904_1195.txt
+04.09.2024;11:34:00;53;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Michael Plüss;CTM1195.prb
+08.10.2024;10:54:00;54;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Michael Plüss;cal_CTD_Pressure_20240904.txt
+08.10.2024;11:23:00;54;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Raw O2 - atmospheric pressure integration ;Michael Plüss;cal_CTD_rawO2_20241008.txt
+08.10.2024;11:53:00;54;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Sat - oxygen saturation. New procedure by Michi;;cal_CTD_satDO_20240904_1195.txt
+08.10.2024;12:02:00;54;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard. ;Michael Plüss;Check_Conductivity_20240904_1195.txt
+08.10.2024;12:54:00;54;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Michael Plüss;cal_CTD_PH_20240904_1195.txt
+08.10.2024;12:48:00;54;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Michael Plüss;CTM1195.prb
+13.11.2024;12:00:00;55;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Floreana Miesen;cal_CTD_Pressure_20241113.txt
+13.11.2024;12:00:00;55;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Raw O2 - atmospheric pressure integration ;Floreana Miesen;cal_CTD_rawO2_20241113.txt
+13.11.2024;12:00:00;55;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Sat - oxygen saturation. New procedure by Michi;Floreana Miesen;cal_CTD_satDO_20241113_1195.txt
+13.11.2024;12:00:00;55;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard. ;Floreana Miesen;Check_Conductivity_20241113_1195.txt
+13.11.2024;12:00:00;55;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Floreana Miesen;cal_CTD_PH_20241113_1195.txt
+13.11.2024;13:45:00;55;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Floreana Miesen;CTM1195.prb
+22.01.2025;09:00:00;56;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Jérémy Keller;cal_CTD_Pressure_20250122.txt
+22.01.2025;09:30:00;56;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Raw O2 - atmospheric pressure integration ;Jérémy Keller;cal_CTD_rawO2_20250122.txt
+22.01.2025;09:30:00;56;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Sat - oxygen saturation. New procedure by Michi;Jérémy Keller;cal_CTD_satDO_20250122_1195.txt
+22.01.2025;10:00:00;56;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard. ;Jérémy Keller;Check_Conductivity_20250122_1195.txt
+22.01.2025;11:00:00;56;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Jérémy Keller;cal_CTD_PH_20250122_1195.txt
+22.01.2025;11:45:00;56;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Jérémy Keller;CTM1195.prb
+20.02.2025;12:00:00;57;Check field;"CTD;multiparameter;CTD75M;1195";General check of the sensors, calib not needed;Philippe Quetin;
+12.03.2025;13:00:00;58;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Guillaume Cunillera;cal_CTD_Pressure_20250312.txt
+12.03.2025;13:00:00;58;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Raw O2 - atmospheric pressure integration ;Guillaume Cunillera;cal_CTD_rawO2_20250312.txt
+12.03.2025;13:00:00;58;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Sat - oxygen saturation. New procedure by Michi;Guillaume Cunillera;cal_CTD_satDO_20250312_1195.txt
+12.03.2025;13:00:00;58;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard. ;Guillaume Cunillera;Check_Conductivity_20250312_1195.txt
+12.03.2025;13:00:00;58;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Guillaume Cunillera;just check, too cold and perfect values, good coef.
+12.03.2025;13:00:00;58;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Guillaume Cunillera;CTM1195.prb
+16.04.2025;09:00:00;59;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Floreana Miesen;cal_CTD_Pressure_20250415.txt
+16.04.2025;09:00:00;59;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Raw O2 - atmospheric pressure integration ;Floreana Miesen;cal_CTD_rawO2_20250415.txt
+16.04.2025;09:00:00;59;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Sat - oxygen saturation. New procedure by Michi;Floreana Miesen;cal_CTD_satDO_20250415_1195.txt
+16.04.2025;09:00:00;59;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard. ;Floreana Miesen;Check_Conductivity_20250415_1195.txt
+16.04.2025;09:00:00;59;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Floreana Miesen;good values
+16.04.2025;09:00:00;59;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Floreana Miesen;CTM1195.prb
+14.05.2025;09:00:00;60;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Floreana Miesen;cal_CTD_Pressure_20250514.txt
+14.05.2025;09:00:00;60;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Raw O2 - atmospheric pressure integration ;Floreana Miesen;cal_CTD_rawO2_20250514.txt
+14.05.2025;09:00:00;60;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Sat - oxygen saturation. New procedure by Michi;Floreana Miesen;cal_CTD_satDO_20250514_1195.txt
+14.05.2025;09:00:00;60;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard. ;Floreana Miesen;Check_Conductivity_20250514_1195.txt
+14.05.2025;09:00:00;60;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Philippe Quetin;good values
+14.05.2025;09:00:00;60;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Philippe Quetin;CTM1195.prb
+16.06.2025;09:00:00;61;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Floreana Miesen;cal_CTD_Pressure_20250618.txt
+16.06.2025;09:00:00;61;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Raw O2 - atmospheric pressure integration ;Floreana Miesen;cal_CTD_rawO2_20250618.txt
+16.06.2025;09:00:00;61;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Sat - oxygen saturation. New procedure by Michi;Floreana Miesen;cal_CTD_satDO_20250618_1195.txt
+16.06.2025;09:00:00;61;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard. ;Floreana Miesen;Check_Conductivity_20250618_1195.txt
+16.06.2025;09:00:00;61;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";very bad sd even after 3 tries. No new calibration!;Floreana Miesen;poor values!
+16.06.2025;09:00:00;61;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Floreana Miesen;CTM1195.prb
+16.07.2025;09:22:00;62;Calibration Field;"Piezo pressure sensor;Pressure;PA7-XXX Progress;N/A(CTD1195)";Depth pressure compensation;Guillaume Cunillera;cal_CTD_Pressure_20250716.txt
+16.07.2025;09:31:00;62;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Raw O2 - atmospheric pressure integration ;Guillaume Cunillera;cal_CTD_rawO2_20250716.txt
+16.07.2025;09:46:00;62;Calibration Field;"Optical DO sensor;DO;SST(internal);312(CTD1195)";Sat - oxygen saturation. New procedure by Michi;Guillaume Cunillera;cal_CTD_satDO_20250716_1195.txt
+16.07.2025;10:04:00;62;Check field;"Conductivity sensor;Conductivity;7-pole electrode cell;N/A(CTD1195)";Check with 200us/cm @ 25degC standard. ;Guillaume Cunillera;Check_Conductivity_20250716_1195.txt
+16.07.2025;10:38:00;62;Calibration Field;"ph sensor;ph;AMT;N/A(CTD1195)";Calibration pH 4, 7, 10;Guillaume Cunillera;cal_CTD_PH_20250716_1195.txt     good values
+16.07.2025;10:41:00;62;Maintenance;"CTD;multiparameter;CTD75M;1195";Cleaning and .prb saved;Guillaume Cunillera;CTM1195.prb
