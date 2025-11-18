@@ -1,29 +1,37 @@
 import os
 import json
 import math
+import ftplib
 import numpy as np
 import pandas as pd
 import seawater as sw
 from shutil import copyfile
 from envass import qualityassurance
 from datetime import datetime, timedelta
+from general.functions import logger
+
+def retrieve_new_files(folder, creds, server_location="data", filetype=".csv", remove=False, overwrite=False, log=logger()):
+    files = []
+    log.info("Connecting to {}.".format(creds["ftp"]), indent=1)
+    ftp = ftplib.FTP(creds["ftp"], timeout=100)
+    ftp.login(creds["user"], creds["password"])
+    server_files = ftp.nlst(server_location)
+    local_files = os.listdir(folder)
+    for file in server_files:
+        file_name = os.path.basename(file)
+        if file.endswith(filetype) and (overwrite or file_name not in local_files):
+            log.info("Downloading file {}".format(file), indent=2)
+            download_file(file, os.path.join(folder, file_name), ftp)
+            if remove:
+                ftp.delete(file)
+            files.append(os.path.join(folder, file_name))
+    files.sort()
+    return files
 
 
-def copyFiles(outfolder, infolder):
-    filelist = []
-    for path, subdirs, files in os.walk(infolder):
-        for name in files:
-            filelist.append(os.path.join(path, name))
-
-    copied = []
-    for file in filelist:
-        if ".TOB" in file:
-            path_arr = os.path.basename(file).split(".")
-            new_file = os.path.join(outfolder, "{}__{}.{}".format(os.path.basename(os.path.dirname(file)), path_arr[0], path_arr[1]))
-            if not os.path.isfile(new_file):
-                copyfile(file, new_file)
-                copied.append(new_file)
-    return copied
+def download_file(server, local, ftp):
+    with open(local, "wb") as f:
+        ftp.retrbinary("RETR " + server, f.write)
 
 
 def is_number(n):
@@ -62,7 +70,8 @@ def resample(guide, data):
         if not guide[i]["index"]:
             out.append(np.nan)
         else:
-            value = ((data[guide[i]["index"] + 1] - data[guide[i]["index"]]) * guide[i]["interpolation"]) + data[guide[i]["index"]]
+            value = ((data[guide[i]["index"] + 1] - data[guide[i]["index"]]) * guide[i]["interpolation"]) + data[
+                guide[i]["index"]]
             out.append(value)
     out.append(np.nan)
     return out
@@ -80,7 +89,7 @@ def position_in_array(arr, value):
 
 
 def round_to_days(dt, n):
-    day = math.floor(dt.day / n)*n
+    day = math.floor(dt.day / n) * n
     if day < 10:
         return "0" + str(day)
     else:
@@ -100,8 +109,9 @@ def advanced_quality_flags(df, json_path="quality_assurance.json"):
     advanced_df = df.copy()
     for var in var_name:
         if quality_assurance_dict[var]:
-            if var in advanced_df.keys(): 
-                qa = qualityassurance(np.array(df[var]), np.array(df["time"]), **quality_assurance_dict[var]["advanced"])
+            if var in advanced_df.keys():
+                qa = qualityassurance(np.array(df[var]), np.array(df["time"]),
+                                      **quality_assurance_dict[var]["advanced"])
                 advanced_df[var + "_qual"].values[np.array(qa, dtype=bool)] = 1
     return advanced_df
 
@@ -113,15 +123,16 @@ def json_converter(qa):
                 qa[keys]["simple"]["bounds"][0] = -np.inf
             if qa[keys]["simple"]["bounds"][1] == "inf":
                 qa[keys]["simple"]["bounds"][1] = np.inf
-        except:pass
+        except:
+            pass
     try:
         if qa["time"]["simple"]["bounds"][1] == "now":
             qa["time"]["simple"]["bounds"][1] = datetime.now().timestamp()
         return qa
     except:
         return qa
-    
-    
+
+
 def log(str, indent=0, start=False):
     if start:
         out = "\n" + str + "\n"
@@ -162,6 +173,7 @@ def isnt_number(n):
     else:
         return False
 
+
 def first_centered_differences(x, y, fill=False):
     if x.size != y.size:
         log("first-centered differences: vectors do not have the same size")
@@ -188,16 +200,18 @@ def first_centered_differences(x, y, fill=False):
 def default_salinity_temperature(temperature):
     return 1.8626 - 0.052908 * temperature + 0.00093057 * temperature ** 2 - 6.78e-6 * temperature ** 3
 
-def salinity(Temp, Cond, y_cond, temperature_func= default_salinity_temperature):
+
+def salinity(Temp, Cond, y_cond, temperature_func=default_salinity_temperature):
     ft = temperature_func(Temp)
     cond20 = ft * Cond * 1000
     salin = y_cond * cond20
     return salin
 
+
 def density(temperature, salinity):
     rho = 1e3 * (
-                0.9998395 + 6.7914e-5 * temperature - 9.0894e-6 * temperature ** 2 + 1.0171e-7 * temperature ** 3 -
-                1.2846e-9 * temperature ** 4 + 1.1592e-11 * temperature ** 5 - 5.0125e-14 * temperature ** 6 + (
+            0.9998395 + 6.7914e-5 * temperature - 9.0894e-6 * temperature ** 2 + 1.0171e-7 * temperature ** 3 -
+            1.2846e-9 * temperature ** 4 + 1.1592e-11 * temperature ** 5 - 5.0125e-14 * temperature ** 6 + (
                     8.181e-4 - 3.85e-6 * temperature + 4.96e-8 * temperature ** 2) * salinity)
     return rho
 
@@ -207,6 +221,7 @@ def Gamma_adiabatic(T, S, p, lat=46.):
     cp = sw.cp(S, T, p)
     Gamma = sw.g(lat) * alpha * (T - 273.15) / cp
     return Gamma
+
 
 def mask_single_data(data, mask):
     try:
@@ -265,7 +280,7 @@ def potential_temperature_sw(T, S, p, p_ref):
     pt : array_like
         potential temperature relative to PR [℃ (ITS-90)]
     """
-    return sw.ptmp(s=S,t=T,p=p,pr=p_ref)
+    return sw.ptmp(s=S, t=T, p=p, pr=p_ref)
 
 
 def oxygen_saturation(T, S, altitude=372., lat=46.2, units="mgl"):
@@ -283,13 +298,13 @@ def oxygen_saturation(T, S, altitude=372., lat=46.2, units="mgl"):
     universal_gas_constant = 8.31447
     baro = (1. / mmHg_mb) * mmHg_inHg * standard_pressure_sea_level * np.exp(
         (-gravitational_acceleration * air_molar_mass * altitude) / (
-                    universal_gas_constant * standard_temperature_sea_level))
+                universal_gas_constant * standard_temperature_sea_level))
     u = 10 ** (8.10765 - 1750.286 / (235 + T))
     press_corr = (baro * mmHg_mb - u) / (760 - u)
 
     Ts = np.log((298.15 - T) / (273.15 + T))
     lnC = 2.00907 + 3.22014 * Ts + 4.0501 * Ts ** 2 + 4.94457 * Ts ** 3 + -0.256847 * Ts ** 4 + 3.88767 * Ts ** 5 - S * (
-                0.00624523 + 0.00737614 * Ts + 0.010341 * Ts ** 2 + 0.00817083 * Ts ** 3) - 4.88682e-07 * S ** 2
+            0.00624523 + 0.00737614 * Ts + 0.010341 * Ts ** 2 + 0.00817083 * Ts ** 3) - 4.88682e-07 * S ** 2
     O2sat = np.exp(lnC)
     if units == "mll":
         O2sat = O2sat * press_corr
@@ -306,7 +321,7 @@ def parse_file(input_file_path, string):
     for i in range(len(lines)):
         if string in lines[i]:
             break
-    if "APHYS_Field" in lines[i-1]:
+    if "APHYS_Field" in lines[i - 1]:
         date_format = "%m/%d/%Y %H:%M:%S"
     else:
         date_format = "%d/%m/%Y %H:%M:%S"
@@ -362,12 +377,13 @@ def parse_time(df, variable, name, columns, units, ref_date, date_format):
             datetime_arr = pd.to_datetime(df["IntD"] + " " + df["IntT"], format=date_format, dayfirst=True)
             try:
                 datetime_arr[df[df[0] == "PM"].index] = datetime_arr[df[df[0] == "PM"].index] + timedelta(hours=12)
-            except: pass
+            except:
+                pass
             idx = np.argmin(np.diff(datetime_arr))
-            if np.diff(datetime_arr)[idx].astype("float")<0:
-                datetime_arr[idx+1:] = np.copy(datetime_arr[idx+1:]+timedelta(hours=12))
+            if np.diff(datetime_arr)[idx].astype("float") < 0:
+                datetime_arr[idx + 1:] = np.copy(datetime_arr[idx + 1:] + timedelta(hours=12))
             arr = list(datetime_arr.values.astype(float) / 10 ** 9)
-            if ref_date and abs(arr[0] - ref_date) > 30*24*60*60:
+            if ref_date and abs(arr[0] - ref_date) > 30 * 24 * 60 * 60:
                 arr = list(
                     datetime_arr.values.astype(float) / 10 ** 9)
             return arr
@@ -377,8 +393,9 @@ def parse_time(df, variable, name, columns, units, ref_date, date_format):
     elif "IntDT" in columns and "IntDT1" in columns:
         try:
             arr = list(pd.to_datetime(df["IntDT"] + " " + df["IntDT1"], dayfirst=True).values.astype(float) / 10 ** 9)
-            if ref_date and abs(arr[0] - ref_date) > 30*24*60*60:
-                arr = list(pd.to_datetime(df["IntDT"] + " " + df["IntDT1"], dayfirst=False).values.astype(float) / 10 ** 9)
+            if ref_date and abs(arr[0] - ref_date) > 30 * 24 * 60 * 60:
+                arr = list(
+                    pd.to_datetime(df["IntDT"] + " " + df["IntDT1"], dayfirst=False).values.astype(float) / 10 ** 9)
             return arr
         except:
             log("Datetime file parse failed")

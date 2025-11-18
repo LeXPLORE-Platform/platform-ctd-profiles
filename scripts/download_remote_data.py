@@ -5,7 +5,7 @@ from subprocess import check_output, Popen, PIPE
 
 
 def download_remote_data(warning=True, delete=False):
-    hosts = ["renkulab.io", "github.com", "gitlab.com", "gitlab.renkulab.io"]
+    hosts = ["renkulab.io", "github.com", "gitlab.com", "gitlab.renkulab.io", "gitlab.eawag.ch"]
     folder = os.path.abspath(os.path.join(os.path.dirname(sys.argv[0]), ".."))
     bucket_file = os.path.join(folder, ".bucket")
     data_folder = os.path.join(folder, "data")
@@ -14,17 +14,15 @@ def download_remote_data(warning=True, delete=False):
     if not os.path.isdir(data_folder):
         raise ValueError("{} not found. data folder is required to sync data.".format(data_folder))
 
-    remote = str(check_output(["git", "remote", "-v"]))
+    remote = str(check_output(["git", "remote", "-v"])).replace(" (push)", "").replace(" (fetch)", "")
     if "git@" in remote:
         remote = str(check_output(["git", "remote", "-v"])).split("git@", 1)[1].split(".git", 1)[0].split(":")
         host = remote[0]
-        group = remote[1].split("/")[0]
-        repository = remote[1].split("/")[1]
+        repository = remote[1]
     elif "https://" in remote:
         remote = str(check_output(["git", "remote", "-v"])).split("https://", 1)[1].split(".git", 1)[0].split("/")
         host = remote[0]
-        group = remote[-2]
-        repository = remote[-1]
+        repository = "/".join(remote[1:])
     else:
         raise ValueError("Unrecognized output from git remote -v: {}".format(remote))
 
@@ -36,7 +34,7 @@ def download_remote_data(warning=True, delete=False):
         bucket = file.read().rstrip()
 
     bucket_name = bucket.replace("https://", "").split(".")[0]
-    bucket_uri = "s3://{}/{}/{}/{}/data".format(bucket_name, host, group, repository)
+    bucket_uri = "s3://{}/{}/{}/data".format(bucket_name, host, repository)
 
     try:
         check_output(["aws", "s3", "ls", bucket_uri, "--no-sign-request"])

@@ -1,7 +1,37 @@
-name: "base"
+name: pipeline
 channels:
-  - defaults
-# dependencies:
-# - add packages here
-# - one per line
-prefix: "/opt/conda"
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - xarray
+  - netcdf4
+  - h5py
+  - matplotlib
+  - plotly
+  - seaborn
+  - cartopy
+  - geos
+  - proj
+  - pyproj
+  - shapely
+  - pyshp
+  - dask
+  - openpyxl
+  - boto3
+  - paramiko
+  - pip:
+      - cmocean==4.0.3
+      - gsw==3.6.19
+      - seawater==3.3.5
+      - pylake==0.1.11
+      - pyrsktools==1.1.1
+      - envass==1.0.0
+      - dolfyn==0.12.3
+      - monda==0.2.0
+      - pysftp==0.2.9
+      - dateparser

@@ -1,22 +1,12 @@
-FROM renku/renkulab:renku0.10.2-py3.7-0.6.1
-
-# Uncomment and adapt if code is to be included in the image
-# COPY src /code/src
-
-# Uncomment and adapt if your R or python packages require extra linux (ubuntu) software
-# e.g. the following installs apt-utils and vim; each pkg on its own line, all lines
-# except for the last end with backslash '\' to continue the RUN line
-#
-# USER root
-# RUN apt-get update && \
-#    apt-get install -y --no-install-recommends \
-#    apt-utils \
-#    vim
-# USER ${NB_USER}
-
-# install the python dependencies
-COPY requirements.txt environment.yml /tmp/
-RUN conda env update -q -f /tmp/environment.yml && \
-    /opt/conda/bin/pip install -r /tmp/requirements.txt && \
-    conda clean -y --all && \
-    conda env export -n "root"
+FROM condaforge/miniforge3:25.3.1-0
+RUN mkdir /repository
+COPY environment.yml /environment.yml
+RUN conda env create -f /environment.yml
+RUN apt-get update && apt-get install -y curl unzip git
+RUN	curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN	unzip awscliv2.zip && ./aws/install
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+RUN useradd -ms /bin/bash auto
+USER auto
+ENTRYPOINT ["/entrypoint.sh"]
