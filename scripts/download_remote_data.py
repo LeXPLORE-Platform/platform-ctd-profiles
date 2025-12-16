@@ -73,4 +73,4 @@ if __name__ == "__main__":
     parser.add_argument('--warning', '-w', help="Remove change warning for automation.", action='store_false')
     parser.add_argument('--delete', '-d', help="Delete files for full sync.", action='store_true')
     args = vars(parser.parse_args())
-    download_remote_data(warning=args["warning"], delete=args["warning"])
+    download_remote_data(warning=args["warning"], delete=args["delete"])
