@@ -10,3 +10,4 @@ start;stop;parameter;depth;comments
 20251010 12:15:00;20251010 13:42:21;pH;-2.294-101.177;Value too low
 20250724 08:00:00;20250724 08:44:00;pH;-2.844-102.953;Values too low
 20250314 14:00:00;20250314 14:46:00;sat;-5.234-114.987;Values are too low
+20200825 12:22:29;20200929 12:22:29;sat,DO_mg;75-97;Abrupt change of oxygen at high depth
