@@ -70,15 +70,17 @@ These events are applied to the quality flags (`<variable>_qual = 1`) when the d
 therefore NaN in Level 2. The file is semicolon separated with the columns `start;stop;parameter;depth;comments`:
 
 - `start`, `stop`: UTC, format `YYYYMMDD HH:MM:SS` (inclusive). An empty `stop` means the event is ongoing.
+  The event applies to every profile whose time range overlaps this window, and always to the whole profile: the exact times within a profile do not matter.
 - `parameter`: `All` or a comma separated list of variable names as they appear in the Level 1 files (e.g. `Cond,Turb`).
   Flagging `Temp`, `Cond`, `Press` or `DO_mg` also flags the variables calculated from them:
   - `Temp`, `Cond` → `SALIN`, `rho`, `depth`, `pt`, `prho`, `sat`, `thorpe`
   - `Press` → `depth`, `pt`, `prho`, `sat`, `thorpe`
   - `DO_mg` → `sat`
-- `depth`: empty or `All` flags the whole profile within the time window. Otherwise only the points whose calculated depth matches are flagged:
+- `depth`: empty or `All` flags the whole profile. Otherwise only the points of the profile whose calculated depth matches are flagged:
   a single depth (`5`, matching ±0.05 m), a range (`10-20`) or a comma separated list of both (`2.5,10-20`). Depths are in metres.
+  Calculated depths can be slightly negative at the surface, so negative values are allowed (e.g. `-1.5-30`).
 - `comments`: free text description of the event. If it contains a `;`, put it in double quotes.
 
-Each profile is about 15 minutes long and profiles are a few days apart, so an event has to overlap a profile's time window to flag anything.
+Each profile is about 15 minutes long and profiles are a few days apart, so an event has to overlap a profile's time range to flag anything.
 Events added for profiles that were already processed only take effect after reprocessing the complete dataset (see [Process data](#process-data)).
 Problems in the events file are logged as warnings and do not stop processing.

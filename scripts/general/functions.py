@@ -65,8 +65,10 @@ class GenericInstrument:
                             qa[time > valid[1]] = 1
                     self.data[name] = qa
 
-    def apply_events(self, events_file, time_label="time", depth_label="depth", flag=1):
+    def apply_events(self, events_file, time_label="time", depth_label="depth", flag=1, profile=False):
         """Set flag in the _qual variables for every event in events_file that overlaps this data.
+        With profile=True the data is a single profile: an event that overlaps it in time applies to the whole
+        profile, and only its depth spec limits which points are flagged.
         Problems with the events file are logged as warnings and never stop processing."""
         self.log.info("Applying events from {}".format(events_file), indent=2)
         self.event_depth_windows = {}
@@ -92,13 +94,13 @@ class GenericInstrument:
 
         for event in events:
             try:
-                self.apply_event(event, time, depths, tol, propagation, time_label, flag)
+                self.apply_event(event, time, depths, tol, propagation, time_label, flag, profile)
             except Exception as e:
                 self.log.warning("Unable to apply event on line {} ({}: {}), skipped.".format(
                     event["line"], type(e).__name__, e), indent=3)
         return True
 
-    def apply_event(self, event, time, depths, tol, propagation, time_label, flag):
+    def apply_event(self, event, time, depths, tol, propagation, time_label, flag, profile=False):
         line = event["line"]
         self.log.info("Line {}: {} (parameter: {}, depth: {})".format(
             line, event["comments"], event["parameter"], event["depth"] or "All"), indent=3)
@@ -117,7 +119,10 @@ class GenericInstrument:
             self.log.warning("Event on line {} matches no variable, nothing flagged.".format(line), indent=4)
             return
 
-        time_mask = (time >= event["start"]) & (time <= event["stop"])
+        if profile:
+            time_mask = np.ones(len(time), dtype=bool)
+        else:
+            time_mask = (time >= event["start"]) & (time <= event["stop"])
         if not time_mask.any():
             self.log.warning("Event on line {} falls in a gap in the data, nothing flagged.".format(line), indent=4)
             return
@@ -557,7 +562,7 @@ def parse_event_depths(spec, depths, log, line, tol):
     depths. Returns a list of (mask, low, high), one per item, or None if the spec cannot be parsed."""
     items = []
     for item in [i.strip() for i in spec.split(",") if i.strip()]:
-        match = re.fullmatch(r"(\d+(?:\.\d*)?)\s*-\s*(\d+(?:\.\d*)?)", item)
+        match = re.fullmatch(r"(-?\d+(?:\.\d*)?)\s*-\s*(-?\d+(?:\.\d*)?)", item)
         try:
             if match:
                 low, high = float(match.group(1)), float(match.group(2))

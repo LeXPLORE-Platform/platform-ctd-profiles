@@ -1,13 +1,13 @@
 start;stop;parameter;depth;comments
 20250124 10:08:00;20250124 10:08:00;Turb;;Turbidity is too high
-20250711 08:56:00;20250711 08:56:00;Turb;0-0.550;Turbidity peak at the surface due to interference
-20250627 07:33:00;20250627 07:33:00;Temp;37.960-38.149;Large spike in the data
+20250711 08:47:00;20250711 09:05:00;Turb;0-0.550;Turbidity peak at the surface due to interference
+20250627 07:25:00;20250627 07:43:00;Temp;37.960-38.149;Large spike in the data
 20210423 08:22:00;20210423 10:22:00;Chl_A;0.5-110;Chla too high over the whole water column
-20221108 15:15:00;20221108 16:15:00;pH;-1.497-117.872;constant value at 10.68
-20251010 10:30:00;20251010 11:30:00;pH;-1.339-111.944;Constant value at 10.689
-20251010 10:21:00;20251010 11:21:00;pH;-2.801-110.206;Constant value at 10.689
-20250124 09:37:00;20250124 11:00:00;Turb;-1.407-33.1;Values are too high for January
+20221108 15:15:00;20221108 16:15:00;pH;;constant value at 10.68
+20221102 11:53:00;20221102 12:17:00;pH;;Constant value at 10.689
+20221107 11:57:00;20221107 12:11:00;pH;;Constant value at 10.689
+20250124 09:37:00;20250124 11:00:00;Turb;;Values are too high for January
 20251010 12:15:00;20251010 13:42:21;pH;-2.294-101.177;Value too low
-20250724 08:00:00;20250724 08:44:00;pH;-2.844-102.953;Values too low
-20250314 14:00:00;20250314 14:46:00;sat;-5.234-114.987;Values are too low
+20250724 08:00:00;20250724 08:44:00;pH;;Values too low
+20250314 13:55:00;20250314 14:46:00;sat;;Values are too low
 20200825 12:22:29;20200929 12:22:29;sat,DO_mg;75-97;Abrupt change of oxygen at high depth
