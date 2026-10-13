@@ -11,40 +11,36 @@ The CTD is an instrument used to measure the conductivity, temperature, and pres
 
 ## Installation
 
-:warning You need to have [git](https://git-scm.com/downloads) and [git-lfs](https://git-lfs.github.com/) installed in order to successfully clone the repository.
+- Clone the repository to your local machine using the command:
 
-- Clone the repository to your local machine using the command: 
+ `git clone git@github.com:LeXPLORE-Platform/platform-ctd-profiles.git`
 
- `git clone https://renkulab.io/gitlab/lexplore/ctd.git`
- 
- Note that the repository will be copied to your current working directory.
+- Create the Python environment with [conda](https://conda-forge.org/download/) and activate it:
 
-- Use Python 3 and install the requirements with:
+ `conda env create -f environment.yml`
 
- `pip install -r requirements.txt`
-
- The python version can be checked by running the command `python --version`. In case python is not installed or only an older version of it, it is recommend to install python through the anaconda distribution which can be downloaded [here](https://www.anaconda.com/products/individual). 
+ `conda activate pipeline`
 
 ## Usage
 
-### Process new data
+### Process data
 
-In order to process new data locally on your machine the file path needs to be adapted to your local file system. The following steps are therefore necessary: 
+`scripts/main.py` processes the CTD profiles in `data/Level0` to Level 1 and Level 2.
 
-- Edit the `scripts/input_batch.bat` file. Change all the directory paths to match your local file system. This file contains all the file paths necessary to launch the batch scripts `runfile.bat`.
+- `python scripts/main.py --server` downloads new profiles from the FTP server (requires `creds.json`, see `creds_example.json`) and processes only those.
+- `python scripts/main.py` reprocesses every file in `data/Level0`.
 
-- Edit the `scripts/input_python.py` file. Change all the directory paths to match your local file system. This file contains all the directories where the python script outputs data to.
+Existing Level 1 and Level 2 files are not overwritten. To reprocess the complete dataset (for example after editing
+`notes/events.csv` or `notes/quality_assurance.json`), empty `data/Level1` and `data/Level2` first.
 
-To process new data, place the data in the input directory which you specified in the `scripts/input_batch.bat` file. 
-Double-clicking on the `runfile.bat` file will automaticall process all the data in the input directory and store the output 
-in the directories specified in the `scripts/input_python.py` file. Note that the input files need to have the same 
-directory structure as the already exisiting files in the `data/Level 0` folder. 
+Run `python scripts/main.py -h` for details on the input arguments available. `scripts/pipeline.py` wraps `main.py` with
+the download and upload steps used operationally (see `entrypoint.sh`).
 
-### Adapt/Extend data processing piepeline
+### Adapt/Extend data processing pipeline
 
-The python script `scripts/main.py` defines the different processing steps while the python script `scripts/ctd.py` contains the python class thetis with all the corresponding 
-class methods to process the data. To add a new processing or visualization step, a new class method can be created in the `ctd.py` file and the step can be added in `main_ctd.py` file.
-Both above mentioned python scripts are independent of the local file system.
+`scripts/main.py` defines the processing steps, and `scripts/instruments.py` contains the `CTD` class with the
+methods that process the data. Methods shared with other LéXPLORE datasets are in `scripts/general/functions.py`.
+To add a new processing step, add a method to the `CTD` class and call it from `main.py`.
 
 ## Data
 
@@ -52,14 +48,37 @@ The data can be found in the folder `data`. The data is structured as follows:
 
 ### Data Structure
 
-- **Level 0**: Raw data collected from the different sensors.
+- **Level 0**: Raw `.TOB` files from the CTD, one file per profile.
 
-- **Level 1**: Column with quality flags are added to the Level 1A data. Quality flag "1" indicates that the data point didn't pass the 
-quality checks and further investigation is needed, quality flag "0" indicates that no further investigation is needed.
+- **Level 1**: One NetCDF file per profile, with quality flags added. Quality flag "1" indicates that the data point didn't pass the
+quality checks (or is covered by an event, see below) and further investigation is needed, quality flag "0" indicates that no further investigation is needed.
+Derived variables (salinity, density, depth, potential temperature, potential density, Thorpe displacements and oxygen saturation) are added.
 
-- **Level 2**: The profile is vertically gridded with a vertical spacing of 0.5m and the "Thrope Lengthscale" as well as the "Vertical diffusivity" are calculated. 
-The data is stored to a NetCDF file spanning over a time period of 10 days.
+- **Level 2**: Level 1 data with flagged points set to NaN, interpolated to a fixed vertical grid from 0 to 120 m with a spacing of 0.1 m.
+The data is stored in monthly NetCDF files.
 
 ## Quality assurance
 
 Quality checks include but are not limited to range validation, data type checking and flagging missing data.
+The automatic quality check is controlled by the package [Envass](https://pypi.org/project/envass/). The specific methods implemented for this dataset are listed in `notes/quality_assurance.json`.
+Data from before the CTD enters the water and from the upcast is also flagged.
+
+### Events
+
+Maintenance dates, sensor problems and other events not identified by the automatic quality assurance are listed in `notes/events.csv`.
+These events are applied to the quality flags (`<variable>_qual = 1`) when the data are processed to Level 1, and the flagged data are
+therefore NaN in Level 2. The file is semicolon separated with the columns `start;stop;parameter;depth;comments`:
+
+- `start`, `stop`: UTC, format `YYYYMMDD HH:MM:SS` (inclusive). An empty `stop` means the event is ongoing.
+- `parameter`: `All` or a comma separated list of variable names as they appear in the Level 1 files (e.g. `Cond,Turb`).
+  Flagging `Temp`, `Cond`, `Press` or `DO_mg` also flags the variables calculated from them:
+  - `Temp`, `Cond` → `SALIN`, `rho`, `depth`, `pt`, `prho`, `sat`, `thorpe`
+  - `Press` → `depth`, `pt`, `prho`, `sat`, `thorpe`
+  - `DO_mg` → `sat`
+- `depth`: empty or `All` flags the whole profile within the time window. Otherwise only the points whose calculated depth matches are flagged:
+  a single depth (`5`, matching ±0.05 m), a range (`10-20`) or a comma separated list of both (`2.5,10-20`). Depths are in metres.
+- `comments`: free text description of the event. If it contains a `;`, put it in double quotes.
+
+Each profile is about 15 minutes long and profiles are a few days apart, so an event has to overlap a profile's time window to flag anything.
+Events added for profiles that were already processed only take effect after reprocessing the complete dataset (see [Process data](#process-data)).
+Problems in the events file are logged as warnings and do not stop processing.

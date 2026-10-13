@@ -37,15 +37,17 @@ def main(server=False, logs=False):
 
     log.begin_stage("Processing data...")
     for file in files:
-        sensor = CTD()
+        sensor = CTD(log=log)
         if sensor.read_data(file):
             sensor.extract_profile()
             sensor.quality_assurance(file_path=os.path.join(repo, "notes", "quality_assurance.json"))
             if sensor.derive_variables(46.49, 372.1):
                 sensor.quality_assurance(file_path=os.path.join(repo, "notes", "quality_assurance.json"))
+                sensor.apply_events(os.path.join(repo, "notes", "events.csv"))
                 edited_files.extend(sensor.export(directories["Level1"], "L1_CTD", output_period="file"))
                 sensor.mask_data()
                 sensor.profile_to_timeseries_grid()
+                sensor.mask_grid_events()
                 edited_files.extend(sensor.export(directories["Level2"], "L2_CTD", output_period="monthly", grid=True))
     log.end_stage()
 

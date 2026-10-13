@@ -96,26 +96,6 @@ def round_to_days(dt, n):
         return str(day)
 
 
-def advanced_quality_flags(df, json_path="quality_assurance.json"):
-    """
-        input :
-            - df is a dataframe of level 1B where basic check have been performed
-            - json path: path for the advanced quality check json file, produced by the jupyter notebook
-        output:
-            - dictionnary where the dataframe is stored with updated advanced quality checks
-        """
-    quality_assurance_dict = json.load(open(json_path))
-    var_name = quality_assurance_dict.keys()
-    advanced_df = df.copy()
-    for var in var_name:
-        if quality_assurance_dict[var]:
-            if var in advanced_df.keys():
-                qa = qualityassurance(np.array(df[var]), np.array(df["time"]),
-                                      **quality_assurance_dict[var]["advanced"])
-                advanced_df[var + "_qual"].values[np.array(qa, dtype=bool)] = 1
-    return advanced_df
-
-
 def json_converter(qa):
     for keys in qa.keys():
         try:

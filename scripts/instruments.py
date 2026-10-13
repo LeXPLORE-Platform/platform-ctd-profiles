@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 import seawater as sw
 import pylake
+import dateparser
 from copy import deepcopy
 from envass import qualityassurance
 from datetime import datetime, timedelta, timezone
@@ -60,6 +61,14 @@ class CTD(GenericInstrument):
             "prho": {'var_name': "prho", 'dim': ('time',), 'unit': 'kg/m3', 'long_name': "Potential Density", },
             "thorpe": {'var_name': "thorpe", 'dim': ('time',), 'unit': 'm', 'long_name': "Thorpe Displacements", },
             "SALIN": {'var_name': 'SALIN', 'dim': ('time',), 'unit': ['PSU', 'ppt'], 'long_name': 'salinity', }
+        }
+
+        # Events flagging a measured variable also flag the variables derived from it in derive_variables
+        self.event_propagation = {
+            "Temp": ["SALIN", "rho", "depth", "pt", "prho", "sat", "thorpe"],
+            "Cond": ["SALIN", "rho", "depth", "pt", "prho", "sat", "thorpe"],
+            "Press": ["depth", "pt", "prho", "sat", "thorpe"],
+            "DO_mg": ["sat"],
         }
 
         self.grid_dimensions = {
