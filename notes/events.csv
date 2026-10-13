@@ -6,3 +6,4 @@ start;stop;parameter;depth;comments
 20221108 15:15:00;20221108 16:15:00;pH;-1.497-117.872;constant value at 10.68
 20251010 10:30:00;20251010 11:30:00;pH;-1.339-111.944;Constant value at 10.689
 20251010 10:21:00;20251010 11:21:00;pH;-2.801-110.206;Constant value at 10.689
+20250124 09:37:00;20250124 11:00:00;Turb;-1.407-33.1;Values are too high for January
