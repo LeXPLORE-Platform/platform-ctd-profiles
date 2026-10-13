@@ -2,3 +2,4 @@ start;stop;parameter;depth;comments
 20250124 10:08:00;20250124 10:08:00;Turb;;Turbidity is too high
 20250711 08:56:00;20250711 08:56:00;Turb;0-0.550;Turbidity peak at the surface due to interference
 20250627 07:33:00;20250627 07:33:00;Temp;37.960-38.149;Large spike in the data
+20210423 08:22:00;20210423 10:22:00;Chl_A;0.5-110;Chla too high over the whole water column
